@@ -1,0 +1,19 @@
+{
+  "name": "admin-sit",
+  "version": "1.0.0",
+  "description": "聚优财管理系统模版",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zwg890919/admin-sit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zwg890919/admin-sit/issues"
+  },
+  "homepage": "https://github.com/zwg890919/admin-sit#readme"
+}
