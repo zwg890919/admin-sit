@@ -1,0 +1,22 @@
+//生成边距默认样式
+$properties: (mg, margin)(mt, margin-top)(mb, margin-bottom)(ml, margin-left)(mr, margin-right) (pd, padding)(pt, padding-top)(pb, padding-bottom)(pl, padding-left)(pr, padding-right) !default;
+$size: 20;
+@while $size>0 {
+    @each $prop in $properties {
+        $class: nth($prop, 1);
+        $style: nth($prop, 2);
+        .#{$class}-#{$size} {
+            #{$style}: #{$size}px;
+        }
+    }
+    $size: $size - 5;
+}
+
+// 菜单项目样式宏
+@mixin theme-menu-hover-style {
+    color: $theme-menu-item-color-hover;
+    i.fa {
+        color: $theme-menu-item-color-hover;
+    }
+    background: $theme-menu-item-background-color-hover;
+}
