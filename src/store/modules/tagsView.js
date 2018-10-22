@@ -4,7 +4,18 @@ import frameOutside from '@/router/routerList'
 const tagsView = {
     state: {
         visitedViews: [],
-        cachedViews: []
+    },
+    getters: {
+        cacheViews(state) {
+            return state.visitedViews.filter(item => {
+                if (item.meta) {
+                    if (item.meta.alive) {
+                        return true
+                    }
+                }
+                return false
+            }).map(e => e.name)
+        }
     },
     mutations: {
         /**
@@ -16,7 +27,7 @@ const tagsView = {
         [type.ADD_VISITED_VIEWS](state, view) {
             if (state.visitedViews.some(v => v.path === view.path)) return
             let tag = frameOutside.find(t => t.name === view.name)
-            if (!tag) {
+            if (!tag && view.name) {
                 state.visitedViews.push(view)
                 this.commit('UPDATE_DB',
                     {
@@ -24,9 +35,6 @@ const tagsView = {
                         value: state.visitedViews
                     },
                     { root: true })
-                if (!view.meta.noCache) {
-                    state.cachedViews.push(view.name)
-                }
             }
         },
         /**
@@ -48,13 +56,6 @@ const tagsView = {
                     value: state.visitedViews
                 },
                 { root: true })
-            for (const i of state.cachedViews) {
-                if (i === view.name) {
-                    const index = state.cachedViews.indexOf(i)
-                    state.cachedViews.splice(index, 1)
-                    break
-                }
-            }
         },
         /**
          * @class DEL_OTHERS_VIEWS
@@ -75,13 +76,6 @@ const tagsView = {
                     value: state.visitedViews
                 },
                 { root: true })
-            for (const i of state.cachedViews) {
-                if (i === view.name) {
-                    const index = state.cachedViews.indexOf(i)
-                    state.cachedViews = state.cachedViews.slice(index, i + 1)
-                    break
-                }
-            }
         },
         /**
          * @class DEL_ALL_VIEWS
@@ -91,7 +85,6 @@ const tagsView = {
          */
         [type.DEL_ALL_VIEWS](state) {
             state.visitedViews = []
-            state.cachedViews = []
             this.commit('UPDATE_DB',
                 {
                     key: 'visitedViews',

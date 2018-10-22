@@ -1,6 +1,9 @@
-// 工具类名统一前缀
-$prefix: jyc;
-
+//主题名称
+$theme-name: 'default';
+// 主题背景颜色
+$theme-bg-color: #ebf1f6;
+// 主题背景图片遮罩
+$theme-bg-mask: rgba(#000, 0);
 // 主色
 $color-primary: #409EFF;
 // 辅助色
@@ -20,24 +23,28 @@ $color-border-3: #EBEEF5;
 $color-border-4: #F2F6FC;
 // 背景
 $color-bg: #f8f8f9;
-
+// 顶栏和侧边栏背景颜色
+$theme-header-background-color: transparent;
+$theme-side-background-color:transparent;
+// 顶栏LOGO背景颜色
+$theme-header-logo-background:transparent;
+// 顶栏菜单阴影
+$theme-header-menu-shadow: transparent;
 // 顶栏和侧边栏中展开的菜单 hover 状态下
 $theme-menu-item-color-hover: #293849;
-$theme-menu-item-background-color-hover: #ecf5ff;
-
+$theme-menu-item-background-color-hover: transparent;
 // 顶栏上的文字颜色
 $theme-header-item-color: $color-text-normal;
 $theme-header-item-background-color: transparent;
 // 顶栏上的项目在 hover 时
 $theme-header-item-color-hover: #2f74ff;
-$theme-header-item-background-color-hover: rgba(#FFF, .5);
+$theme-header-item-background-color-hover: transparent;
 // 顶栏上的项目在 focus 时
 $theme-header-item-color-focus: #2f74ff;
-$theme-header-item-background-color-focus: rgba(#FFF, .5);
+$theme-header-item-background-color-focus: transparent;
 // 顶栏上的项目在 active 时
 $theme-header-item-color-active: #2f74ff;
-$theme-header-item-background-color-active: rgba(#FFF, .5);
-
+$theme-header-item-background-color-active: transparent;
 // 侧边栏上的文字颜色
 $theme-aside-item-color: $color-text-normal;
 $theme-aside-item-background-color: transparent;
@@ -50,10 +57,16 @@ $theme-aside-item-background-color-focus: rgba(#FFF, .5);
 // 侧边栏上的项目在 active 时
 $theme-aside-item-color-active: #2f74ff;
 $theme-aside-item-background-color-active: rgba(#FFF, .5);
-
-
 // 禁止用户选中 鼠标变为手形
 %unable-select {
     user-select: none;
     cursor: pointer;
 }
+
+// 标签列表背景颜色
+$theme-tagsnav-background: transparent;
+// 标签列表页偏移位置
+$theme-tagsnav-paddingleft: 0px;
+//侧边栏空数据
+$theme-aside-menu-empty-background-color: rgba(#000, .03);
+$theme-aside-menu-empty-text-color:#606266;

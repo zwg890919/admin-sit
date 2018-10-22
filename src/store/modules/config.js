@@ -9,6 +9,7 @@ const systemConfig = {
         currentApp: menus[0],
         // 侧边栏收缩
         asideCollapse: false,
+        themeActive:'default',
     },
     mutations: {
         [type.TOOGLE_FULLSCREEN](state, isFullScreen) {
@@ -28,12 +29,24 @@ const systemConfig = {
                 value: asideCollapse,
             }, { root: true })
         },
+        [type.SET_THEME](state, theme){
+            state.themeActive = theme;
+            document.body.className = `theme-${state.themeActive}`
+            this.commit('UPDATE_DB', {
+                key: 'themeActive',
+                value: theme,
+            }, { root: true })
+        }
     },
     actions: {
         LOGINSUCCESSLOAD({ commit, state }) {
             commit('DBTOVUEX', {
                 key: 'asideCollapse',
                 defaultValue: false,
+            }, { root: true })
+            commit('DBTOVUEX', {
+                key: 'themeActive',
+                defaultValue: 'default',
             }, { root: true })
             commit('DBTOVUEX', {
                 key: 'currentApp',
@@ -44,6 +57,7 @@ const systemConfig = {
                 defaultValue: [],
                 moduleName:'tagsView'
             }, { root: true })
+            commit('SET_THEME',state.themeActive)
         }
     }
 }

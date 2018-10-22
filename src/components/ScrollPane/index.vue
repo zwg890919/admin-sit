@@ -66,7 +66,6 @@
         overflow: hidden;
         width: 100%;
         height: 100%;
-        padding-right: 126px;
         .scroll-wrapper {
             position: absolute;
         }

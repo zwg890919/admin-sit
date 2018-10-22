@@ -1,5 +1,5 @@
 <template>
-    <jyc-container>
+    <el-card shadow="never">
         123131
-    </jyc-container>
+    </el-card>
 </template>

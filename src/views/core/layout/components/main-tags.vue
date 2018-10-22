@@ -1,13 +1,20 @@
 <template>
     <div class="tags-nav">
-        <scroll-pane ref='scrollPane'>
+        <el-tabs type="card" closable v-model="currentTag" @tab-remove="removeTab" @tab-click="tabCLick">
+            <el-tab-pane v-for="tag in Array.from(visitedViews)" :key="tag.path" :label="tag.meta.title" :name="tag.name">
+                <!-- {{item.content}} -->
+            </el-tab-pane>
+        </el-tabs>
+
+        <!-- <scroll-pane ref='scrollPane'>
+
             <router-link ref='tag' class="tags-nav__item" :class="isActive(tag)?'active':''" v-for="tag in Array.from(visitedViews)" :to="tag" :key="tag.path">
                 <i class="fa fa-circle"></i>
                 {{tag.meta.title}}
                 <span class='el-icon-close' @click.prevent.stop='closeSelectedTag(tag)'></span>
             </router-link>
-        </scroll-pane>
-        <el-dropdown  class="tags-menu" @command="handleCommand" trigger="click">
+        </scroll-pane> -->
+        <el-dropdown class="tags-menu" @command="handleCommand" trigger="click">
             <el-button type="primary" size="mini">
                 更多
                 <i class="el-icon-arrow-down el-icon--right"></i>
@@ -26,9 +33,7 @@
         components: { ScrollPane },
         data() {
             return {
-                top: 0,
-                left: 0,
-                selectedTag: {}
+                currentTag: this.$route.name
             }
         },
         computed: {
@@ -38,23 +43,12 @@
         },
         watch: {
             $route() {
-                this.moveToCurrentTag()
+                this.currentTag = this.$route.name
             },
         },
         methods: {
             isActive(route) {
                 return route.path === this.$route.path
-            },
-            moveToCurrentTag() {
-                const tags = this.$refs.tag
-                this.$nextTick(() => {
-                    for (const tag of tags) {
-                        if (tag.to.path === this.$route.path) {
-                            this.$refs.scrollPane.moveToTarget(tag.$el)
-                            break
-                        }
-                    }
-                })
             },
             closeSelectedTag(view) {
                 this.$store.dispatch('delVisitedViews', view).then((views) => {
@@ -72,15 +66,29 @@
                 this.$store.dispatch('delOthersViews', this.$route)
             },
             closeAllTags() {
-                this.$store.dispatch('delAllViews')
-                this.$router.push('/')
+                if (this.visitedViews.length > 1) {
+                    this.$store.dispatch('delAllViews')
+                    this.$router.push('/')
+                }
             },
-            handleCommand(type){
-                if(type == 'closeOther'){
+            handleCommand(type) {
+                if (type == 'closeOther') {
                     this.closeOthersTags()
-                }else if(type == 'closeAll'){
+                } else if (type == 'closeAll') {
                     this.closeAllTags()
                 }
+            },
+            removeTab(name) {
+                this.visitedViews.forEach(view => {
+                    if (view.name === name) {
+                        this.closeSelectedTag(view)
+                    }
+                });
+            },
+            tabCLick({ name }) {
+                this.$router.push({
+                    name
+                })
             }
         }
     }
@@ -112,10 +120,10 @@
                 margin-right: 7px;
             }
         }
-        .tags-menu{
+        .tags-menu {
             position: absolute;
-            top: 5px;
-            right: 10px;
+            top: 7px;
+            right: 30px;
         }
     }
 </style>

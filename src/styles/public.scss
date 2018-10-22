@@ -12,11 +12,20 @@ $size: 20;
     $size: $size - 5;
 }
 
-// 菜单项目样式宏
-@mixin theme-menu-hover-style {
-    color: $theme-menu-item-color-hover;
+
+%el-menu-icon {
     i.fa {
-        color: $theme-menu-item-color-hover;
+        display: inline-block;
+        width: 15px;
+        text-align: center;
+        margin-right: 5px;
     }
-    background: $theme-menu-item-background-color-hover;
+}
+
+%full {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
 }

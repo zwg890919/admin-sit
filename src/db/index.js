@@ -10,6 +10,7 @@ db.defaults({
     currentApp: [],
     currentView: [],
     visitedViews: [],
+    themeActive:[],
     userInfo: []
 })
     .write()

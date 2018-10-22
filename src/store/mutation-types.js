@@ -5,6 +5,7 @@ export const DBTOVUEX = 'DBTOVUEX'
 // 系统设置类
 export const TOOGLE_ASIDE = 'TOOGLE_ASIDE'
 export const TOOGLE_FULLSCREEN = 'TOOGLE_FULLSCREEN'
+export const SET_THEME = 'SET_THEME'
 
 // 标签页类
 export const ADD_VISITED_VIEWS = 'ADD_VISITED_VIEWS'

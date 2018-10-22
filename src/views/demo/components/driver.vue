@@ -1,14 +1,9 @@
 <template>
-    <jyc-container>
-        <template slot="header">
-            引导页
-        </template>
-        <div class="pd-20">
+    <el-card shadow="never">
             <el-alert title="实现依赖driverJS" type="success" description='详细地址：https://github.com/kamranahmedse/driver.js' :closable="false" show-icon class="mb-20">
             </el-alert>
             <el-button type="primary" class="showDriver" @click.prevent.stop="showDriver">引导功能</el-button>
-        </div>
-    </jyc-container>
+    </el-card>
 </template>
 
 <script>

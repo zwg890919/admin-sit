@@ -1,20 +1,10 @@
 <template>
-    <jyc-container>
-        <template slot="header">
-            富文本编辑器
-        </template>
-        <div class="pd-20">
-            <el-alert title="实现依赖vue-quill-editor"
-                      type="success"
-                      description='详细地址：https://github.com/surmon-china/vue-quill-editor'
-                      :closable="false"
-                      show-icon
-                      class="mb-20">
-            </el-alert>
-            <quill-editor ref="myQuillEditor" :options="editorOptions">
-            </quill-editor>
-        </div>
-    </jyc-container>
+    <el-card shadow="never" style="height:600px">
+        <el-alert title="实现依赖vue-quill-editor" type="success" description='详细地址：https://github.com/surmon-china/vue-quill-editor' :closable="false" show-icon class="mb-20">
+        </el-alert>
+        <quill-editor ref="myQuillEditor" :options="editorOptions">
+        </quill-editor>
+    </el-card>
 </template>
 <script>
     import "quill/dist/quill.core.css";

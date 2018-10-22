@@ -7,17 +7,21 @@
                 <img v-if="asideCollapse" :src="`${$assetsPublicPath}static/image/icon-only.png`" alt="">
                 <img v-else :src="`${$assetsPublicPath}static/image/all.png`" alt="">
             </div>
-            <div class="sidebar-btn" @click="toggleAside">
-                <i class="fa fa-bars" style="font-size: 20px; padding-top: 4px;"></i>
+            <div class="menu-wrapper" :style="{'margin-left': asideCollapse ? asideWidthCollapse : asideWidth}">
+                <div class="sidebar-btn" @click="toggleAside">
+                    <i class="fa fa-bars" style="font-size: 20px; padding-top: 4px;"></i>
+                </div>
+                <!-- 顶栏菜单 -->
+                <header-menu></header-menu>
+                <!-- 顶栏右侧 -->
+                <div class="header-right">
+                    <header-fullscreen></header-fullscreen>
+                    <header-theme></header-theme>
+                    <header-message></header-message>
+                    <header-avatar></header-avatar>
+                </div>
             </div>
-            <!-- 顶栏菜单 -->
-            <header-menu></header-menu>
-            <!-- 顶栏右侧 -->
-            <div class="header-right">
-                <header-fullscreen></header-fullscreen>
-                <header-message></header-message>
-                <header-avatar></header-avatar>
-            </div>
+
         </div>
         <!-- 侧边导航栏 -->
         <div class="sidebar-container" :style="{width: asideCollapse ? asideWidthCollapse : asideWidth}">
@@ -26,16 +30,14 @@
         <!-- 内容主体 -->
         <div class="main-container" :style="{left: asideCollapse ? asideWidthCollapse : asideWidth}">
             <main-tags></main-tags>
-            <div class="page-view">
-                <transition name="fade-transverse">
-                    <keep-alive>
-                        <router-view v-if="alive" />
-                    </keep-alive>
-                </transition>
-                <transition name="fade-transverse">
-                    <router-view v-if="!alive" />
-                </transition>
-            </div>
+            <el-scrollbar class="page-view">
+                <keep-alive :include="cacheViews">
+                    <router-view />
+                </keep-alive>
+            </el-scrollbar>
+            <!-- <transition name="fade-transverse" mode="out-in"> -->
+
+            <!-- </transition> -->
         </div>
     </div>
 </template>
@@ -54,19 +56,12 @@
             'header-fullscreen': () => import('./components/header-fullscreen'),
             'header-message': () => import('./components/header-message'),
             'header-avatar': () => import('./components/header-avatar'),
+            'header-theme': () => import('./components/header-theme'),
             'left-aside': () => import('./components/left-aside'),
             'main-tags': () => import('./components/main-tags.vue')
         },
         computed: {
-            alive() {
-                if (this.$route.meta) {
-                    if (this.$route.meta.alive) {
-                        return true
-                    }
-                }
-                return false
-            },
-            ...mapGetters(['asideCollapse'])
+            ...mapGetters(['asideCollapse', 'cacheViews'])
         },
         methods: {
             ...mapMutations([
@@ -78,3 +73,8 @@
         }
     }
 </script>
+
+<style lang="scss">
+    // 注册主题
+    @import "~@/styles/theme/reigster.scss";
+</style>

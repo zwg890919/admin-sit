@@ -1,8 +1,8 @@
 <template>
-    <el-scrollbar wrapClass="scrollbar-wrapper">
+    <el-scrollbar class="scrollbar-wrapper">
         <el-menu mode="vertical" :show-timeout="200" :collapse="asideCollapse" ref="menu" :default-active="currentView.title" >
             <template v-for="item in currentApp">
-                <router-link v-if="hasChildren(item.children) && !item.children[0].children" :key="item.title" :to="`${item.path}`">
+                <router-link v-if="item.children === undefined" :key="item.title" :to="`${item.path}`">
                     <el-menu-item :index="item.title">
                         <i :class="`fa fa-${item.icon || 'file-o'}`"></i>
                         <span slot="title">{{item.title}}</span>
@@ -49,15 +49,6 @@
             }
         },
         methods: {
-            hasChildren(children) {
-                const showingChildren = children.filter(item => {
-                    return !item.hidden
-                })
-                if (showingChildren.length === 1) {
-                    return true
-                }
-                return false
-            },
         }
     }
 </script>

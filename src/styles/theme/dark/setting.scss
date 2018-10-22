@@ -1,0 +1,73 @@
+//主题名称
+$theme-name: 'dark';
+// 主题背景颜色
+$theme-bg-color: #f2f2f2;
+// 主题背景图片遮罩
+$theme-bg-mask: rgba(#000, 0);
+// 主色
+$color-primary: #409EFF;
+// 辅助色
+$color-info: #909399;
+$color-success: #67C23A;
+$color-warning: #E6A23C;
+$color-danger: #F56C6C;
+// 文字
+$color-text-main: #303133;
+$color-text-normal: #869fb1;
+$color-text-sub: #909399;
+$color-text-placehoder: #C0C4CC;
+// 边框
+$color-border-1: #DCDFE6;
+$color-border-2: #E4E7ED;
+$color-border-3: #EBEEF5;
+$color-border-4: #F2F6FC;
+// 背景
+$color-bg: #1c2b36;
+// 顶栏和侧边栏背景颜色
+$theme-header-background-color: #fff;
+$theme-side-background-color:#002253;
+// 顶栏LOGO背景颜色
+$theme-header-logo-background:#002253;
+// 顶栏菜单阴影
+$theme-header-menu-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+// 顶栏和侧边栏中展开的菜单 hover 状态下
+$theme-menu-item-color-hover: #293849;
+$theme-menu-item-background-color-hover: #ecf5ff;
+// 顶栏上的文字颜色
+$theme-header-item-color: rgba(0, 0, 0, .65);
+$theme-header-item-background-color: transparent;
+// 顶栏上的项目在 hover 时
+$theme-header-item-color-hover: rgba(0, 0, 0, .65);
+$theme-header-item-background-color-hover: rgba(#FFF, .05);
+// 顶栏上的项目在 focus 时
+$theme-header-item-color-focus: rgba(0, 0, 0, .65);
+$theme-header-item-background-color-focus: rgba(#FFF, .05);
+// 顶栏上的项目在 active 时
+$theme-header-item-color-active: #000;
+$theme-header-item-background-color-active: rgba(#FFF, .05);
+// 侧边栏上的文字颜色
+$theme-aside-item-color: $color-text-normal;
+$theme-aside-item-background-color: transparent;
+// 侧边栏上的项目在 hover 时
+$theme-aside-item-color-hover: #2f74ff;
+$theme-aside-item-background-color-hover: rgba(#FFF, .05);
+// 侧边栏上的项目在 focus 时
+$theme-aside-item-color-focus: #2f74ff;
+$theme-aside-item-background-color-focus: rgba(#FFF, .05);
+// 侧边栏上的项目在 active 时
+$theme-aside-item-color-active: #2f74ff;
+$theme-aside-item-background-color-active: rgba(#FFF, .05);
+// 禁止用户选中 鼠标变为手形
+%unable-select {
+    user-select: none;
+    cursor: pointer;
+}
+
+// 标签列表背景颜色
+$theme-tagsnav-background: #fff;
+// 标签列表页偏移位置
+$theme-tagsnav-paddingleft: 10px;
+
+//侧边栏空数据
+$theme-aside-menu-empty-background-color: rgba(#FFF, .1);
+$theme-aside-menu-empty-text-color:#8c8c8c;

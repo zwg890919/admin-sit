@@ -1,11 +1,10 @@
 <template>
     <div class="login-container">
         <div class="login-layer flex-center">
-            <div class="login-group">
-                <img src="../../../assets/image/d2admin.png" alt="">
-            </div>
             <div class="login-form">
                 <el-card class="box-card">
+                    <h1 class="login-title">JYC Admin</h1>
+                    <p class="pb-5 login-desc">上城区最具影响力的前端开发团队</p>
                     <el-form ref="loginForm" :model="formLogin" :rules="rules">
                         <el-form-item prop="username">
                             <el-input type="text" v-model="formLogin.username" placeholder="用户名">
@@ -98,18 +97,15 @@
                 flex-direction: column;
             }
         }
-        &-group {
-            margin-top: -145px;
-            position: relative;
-            top: 75px;
-            img {
-                height: 140px;
-            }
-        }
         &-form {
-            width: 300px;
-            .el-card__body {
-                padding-top: 70px;
+            width: 350px;
+            .login-title{
+                text-align:center
+            }
+            .login-desc {
+                text-align: center;
+                font-size: 14px;
+                color: rgba(0, 0, 0, 0.45);
             }
             .button-login {
                 width: 100%;
