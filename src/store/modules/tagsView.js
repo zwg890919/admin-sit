@@ -6,16 +6,7 @@ const tagsView = {
         visitedViews: [],
     },
     getters: {
-        cacheViews(state) {
-            return state.visitedViews.filter(item => {
-                if (item.meta) {
-                    if (item.meta.alive) {
-                        return true
-                    }
-                }
-                return false
-            }).map(e => e.name)
-        }
+
     },
     mutations: {
         /**
@@ -50,6 +41,7 @@ const tagsView = {
                     break
                 }
             }
+            // console.log(view
             this.commit('UPDATE_DB',
                 {
                     key: 'visitedViews',

@@ -79,6 +79,9 @@
                 }
             },
             removeTab(name) {
+                if (this.visitedViews.length == 1) {
+                    return false
+                }
                 this.visitedViews.forEach(view => {
                     if (view.name === name) {
                         this.closeSelectedTag(view)

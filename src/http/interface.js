@@ -5,38 +5,17 @@ import axios from './api' // 倒入 api
  * 此处的数据依然来自 Easy Mock
  */
 
-// 单独倒出
-export const query = params => {
+// 内控用户登陆
+export const loginMgr = params => {
     return axios({
-        url: '/query',
-        method: 'get',
-        params:{
-            a:1,
-            v:2
-        }
-    })
-}
-
-export const mock = params => {
-    return axios({
-        url: '/mock',
+        url: '/login/mgr',
         method: 'get',
         params
-    })
-}
-
-export const upload = data => {
-    return axios({
-        url: '/postquery',
-        method: 'post',
-        data
     })
 }
 
 // 默认全部倒出
 // 根绝需要进行
 export default {
-    query,
-    mock,
-    upload
+    loginMgr
 }

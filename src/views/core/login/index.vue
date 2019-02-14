@@ -3,11 +3,11 @@
         <div class="login-layer flex-center">
             <div class="login-form">
                 <el-card class="box-card">
-                    <h1 class="login-title">JYC Admin</h1>
-                    <p class="pb-5 login-desc">上城区最具影响力的前端开发团队</p>
+                    <h1 class="login-title">JYC 内控权限系统</h1>
+                    <p class="pb-5 login-desc"></p>
                     <el-form ref="loginForm" :model="formLogin" :rules="rules">
-                        <el-form-item prop="username">
-                            <el-input type="text" v-model="formLogin.username" placeholder="用户名">
+                        <el-form-item prop="account">
+                            <el-input type="text" v-model="formLogin.account" placeholder="用户名">
                                 <i slot="prepend" class="fa fa-user-circle-o"></i>
                             </el-input>
                         </el-form-item>
@@ -16,14 +16,14 @@
                                 <i slot="prepend" class="fa fa-keyboard-o"></i>
                             </el-input>
                         </el-form-item>
-                        <el-form-item prop="code">
+                        <!-- <el-form-item prop="code">
                             <el-input type="text" v-model="formLogin.code" placeholder="- - - -">
                                 <template slot="prepend">验证码</template>
                                 <template slot="append">
                                     <img class="login-code" :src="`${$assetsPublicPath}static/image/login-code.png`">
                                 </template>
                             </el-input>
-                        </el-form-item>
+                        </el-form-item> -->
                         <el-button @click="submit" type="primary" class="button-login">登录</el-button>
                     </el-form>
                 </el-card>

@@ -43,12 +43,6 @@ const tablesMenu = (pre => [
 
 export default [
     {
-        title: '首页',
-        icon: 'puzzle-piece',
-        path: '/index',
-        children: []
-    },
-    {
         title: '功能应用',
         icon: 'puzzle-piece',
         path: '/demo/components',
@@ -57,11 +51,6 @@ export default [
             ...tablesMenu
         ]
     },
-    // {
-    //     title: '系统设置',
-    //     icon: 'briefcase',
-    //     path: '/index'
-    // },
 ]
 
 

@@ -1,6 +1,6 @@
 export default {
     // 基础url前缀
-    baseURL: 'https://easy-mock.com/mock/5b6c07624c01ef1691f86dd9/example',
+    baseURL: 'http://192.168.2.49:8080',
     // 请求头信息
     headers: {
         // 'X-Requested-With': 'XMLHttpRequest',

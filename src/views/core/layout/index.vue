@@ -12,7 +12,7 @@
                     <i class="fa fa-bars" style="font-size: 20px; padding-top: 4px;"></i>
                 </div>
                 <!-- 顶栏菜单 -->
-                <header-menu></header-menu>
+                <!-- <header-menu></header-menu> -->
                 <!-- 顶栏右侧 -->
                 <div class="header-right">
                     <header-fullscreen></header-fullscreen>
@@ -30,14 +30,12 @@
         <!-- 内容主体 -->
         <div class="main-container" :style="{left: asideCollapse ? asideWidthCollapse : asideWidth}">
             <main-tags></main-tags>
-            <el-scrollbar class="page-view">
-                <keep-alive :include="cacheViews">
-                    <router-view />
+            <el-scrollbar class="page-view" ref="pageView">
+                <keep-alive >
+                    <router-view  v-if="$route.meta.alive" />
                 </keep-alive>
+                <router-view v-if="!$route.meta.alive"></router-view>
             </el-scrollbar>
-            <!-- <transition name="fade-transverse" mode="out-in"> -->
-
-            <!-- </transition> -->
         </div>
     </div>
 </template>
@@ -61,7 +59,7 @@
             'main-tags': () => import('./components/main-tags.vue')
         },
         computed: {
-            ...mapGetters(['asideCollapse', 'cacheViews'])
+            ...mapGetters(['asideCollapse']),
         },
         methods: {
             ...mapMutations([

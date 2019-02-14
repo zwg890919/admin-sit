@@ -1,6 +1,9 @@
 import layoutCon from '@/views/core/layout'
 
-const meta = { requiresAuth: true }
+const meta = {
+    requiresAuth: true,
+    alive: true
+}
 
 const frametInside = [
     {
@@ -40,8 +43,8 @@ const frametInside = [
             { path: 'cookie', name: `${pre}cookie`, component: () => import('@/views/demo/components/cookie'), meta: { ...meta, title: 'Cookie读写' } },
             { path: 'search', name: `${pre}search`, component: () => import('@/views/demo/components/search'), meta: { ...meta, title: '查询组件' } },
             { path: 'json', name: `${pre}json`, component: () => import('@/views/demo/components/json'), meta: { ...meta, title: 'JSON展示' } },
-            { path: 'page-cache/on', name: `${pre}page-cache-on`, component: () => import('@/views/demo/components/page-cache/on'), meta: { ...meta, title: '开启缓存', alive: true } },
-            { path: 'page-cache/off', name: `${pre}page-cache-off`, component: () => import('@/views/demo/components/page-cache/off'), meta: { ...meta, title: '关闭缓存' } },
+            { path: 'page-cache/on', name: `${pre}page-cache-on`, component: () => import('@/views/demo/components/page-cache/on'), meta: { ...meta, title: '开启缓存',  } },
+            { path: 'page-cache/off', name: `${pre}page-cache-off`, component: () => import('@/views/demo/components/page-cache/off'), meta: { ...meta, title: '关闭缓存' , alive: false } },
             { path: 'crud/table', name: `${pre}crud-table`, component: () => import('@/views/demo/components/crud/table'), meta: { ...meta, title: 'CRUD表格' } },
             { path: 'table/custom-table', name: `${pre}custom`, component: () => import('@/views/demo/components/table/custom'), meta: { ...meta, title: '自定义表格' } },
             { path: 'table/inline-edit-table', name: `${pre}inline-edit`, component: () => import('@/views/demo/components/table/inline-edit'), meta: { ...meta, title: '行内修改表格' } },
